@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"net/smtp"
 	"os"
@@ -74,7 +75,7 @@ func main() {
 	fileName := os.Args[1]
 	fmt.Printf("Reading from %s\n", fileName)
 
-	data, err := os.ReadFile(fileName)
+	data, err := ioutil.ReadFile(fileName)
 	if err != nil {
 		panic(err)
 	}
