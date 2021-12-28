@@ -24,7 +24,7 @@ Configuration is done through the `sites.txt` file.
 <Website n>
 ```
 
-Check [`sites-example.txt`](sites-example.txt) for an example.
+Check [`example-sites.txt`](example-sites.txt) for an example.
 
 ## License
 
