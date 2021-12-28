@@ -72,11 +72,17 @@ func ping(config Config, websites []string) {
 }
 
 func main() {
+	if len(os.Args) != 2 {
+		usage()
+		os.Exit(0)
+	}
+
 	fileName := os.Args[1]
 	fmt.Printf("Reading from %s\n", fileName)
 
 	data, err := ioutil.ReadFile(fileName)
 	if err != nil {
+		fmt.Printf("Cannot open configuration file '%s'.\n", fileName)
 		panic(err)
 	}
 	contents := strings.Split(string(data), "\n")
@@ -101,4 +107,9 @@ func main() {
 		fmt.Printf("\n* TICK: %s\n", nextTime.String())
 		ping(config, websites)
 	}
+}
+
+func usage() {
+	fmt.Println("Usage: minute [configuration file]...")
+	fmt.Println("e.g. minute sites.txt")
 }
