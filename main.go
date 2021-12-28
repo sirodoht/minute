@@ -53,7 +53,10 @@ func ping(config Config, websites []string) {
 		}
 		fmt.Print("Pinging " + websitesSingle)
 
-		resp, err := http.Get(websitesSingle)
+		client := http.Client{
+			Timeout: 90 * time.Second,
+		}
+		resp, err := client.Get(websitesSingle)
 		if err != nil {
 			fmt.Printf("NOT OK\n%s\n", err)
 			notify(config, websitesSingle)
