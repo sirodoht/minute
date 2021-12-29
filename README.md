@@ -5,7 +5,8 @@ Self-hosted uptime monitor.
 ## Usage
 
 ```sh
-$ minute sites.txt
+$ go build
+$ ./minute sites.txt
 ```
 
 ## Configuration
