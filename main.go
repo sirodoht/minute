@@ -30,7 +30,7 @@ func notify(config Config, website string) {
 
 	msg := "From: " + from + "\n" +
 		"To: " + to + "\n" +
-		"Subject: Uptime: " + website + "\n\n" +
+		"Subject: DOWN: " + website + "\n\n" +
 		website + " is down."
 
 	err := smtp.SendMail(serverWithPort,
